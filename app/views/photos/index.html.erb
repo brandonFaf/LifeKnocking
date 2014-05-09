@@ -1,1 +1,41 @@
-Hello
+<% provide(:title, 'Photos') %>
+<div class="jumbotron">
+  <h1>Life Knocking</h1>
+  <p>Welcome to our podcast this is where we would put a short description of our site and what we do.</p>
+</div>
+<div class="row">
+  <div class="col-md-8 col-md-offset-1">
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      
+      <th>Caption</th>
+    </tr>
+  </thead>
+
+  <tbody>
+	<% @photo.each do |photo| %>
+      <tr>
+        <td><%= photo.title %></td>
+		<!-- display the avatar in both the original size and the thumbnail size -->
+		
+		
+		
+		<!-- show the filename for the resume -->
+        <td><%= photo.caption %></td>
+        <td><%= link_to 'Delete', photo, method: :delete  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<br>
+<br>
+<%=  %>
+<br>
+
+<%= link_to 'New Photo', new_photo_path %>
+</div>
+</div>

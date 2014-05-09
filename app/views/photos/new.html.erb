@@ -1,0 +1,39 @@
+
+<div class="jumbotron">
+  <h1>Life Knocking</h1>
+  <p>Welcome to our podcast this is where we would put a short description of our site and what we do.</p>
+</div>
+<div class="row">
+  <div class="col-md-8 col-md-offset-1">
+<h1>New Photo</h1>
+
+<%= form_for(@photo) do |f| %>
+  <% if @photo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @photo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <!-- Upload your attachments via a simple file_fields in the form -->
+ 
+  <div class="field">
+    <%= f.label :caption %><br>
+    <%= f.text_field :caption %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', photos_path %>
+</div></div>
