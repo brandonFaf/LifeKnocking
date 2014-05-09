@@ -25,7 +25,10 @@
     <%= f.text_field :title %>
   </div>
   <!-- Upload your attachments via a simple file_fields in the form -->
- 
+ <div class="field">
+    <%= f.label :pic %><br>
+    <%= f.file_field :pic %>
+  </div>
   <div class="field">
     <%= f.label :caption %><br>
     <%= f.text_field :caption %>

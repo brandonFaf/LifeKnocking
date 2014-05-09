@@ -5,11 +5,11 @@
 </div>
 <div class="row">
   <div class="col-md-8 col-md-offset-1">
-<table>
+<table class="table table-striped table-hover">
   <thead>
     <tr>
       <th>Title</th>
-      
+      <th>Pic</th>
       <th>Caption</th>
     </tr>
   </thead>
@@ -19,7 +19,7 @@
       <tr>
         <td><%= photo.title %></td>
 		<!-- display the avatar in both the original size and the thumbnail size -->
-		
+	<td><%= image_tag photo.pic.url %></td>
 		
 		
 		<!-- show the filename for the resume -->
