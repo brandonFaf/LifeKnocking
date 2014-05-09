@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'photos#index'
 
   resources :photos, only: [:new, :create, :index, :destroy]
+  resources :podcasts, only: [:new, :create, :index]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

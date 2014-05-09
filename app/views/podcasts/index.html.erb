@@ -1,0 +1,45 @@
+<% provide(:title, 'Podcasts') %>
+<div class="jumbotron">
+  <h1>Life Knocking</h1>
+  <p>Welcome to our podcast this is where we would put a short description of our site and what we do.</p>
+</div>
+<div class="row">
+  <div class="col-md-8 col-md-offset-1">
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Listen</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Audio</th>
+    </tr>
+  </thead>
+
+  <tbody>
+	<% @pod.each do |pod| %>
+      <tr>
+        <td>
+          <audio controls>
+            <source src="<%=pod.audio.url%>" type="audio/mpeg">
+          </audio>
+        </td>
+        <td><%= pod.title %></td>
+		<!-- display the avatar in both the original size and the thumbnail size -->
+		<td><%= pod.description %></td>
+		
+		
+		<!-- show the filename for the resume -->
+        <td><%= pod.audio_file_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<br>
+<br>
+<%=  %>
+<br>
+<%= link_to "Add new Podcast", new_podcast_path %>
+</div>
+</div>

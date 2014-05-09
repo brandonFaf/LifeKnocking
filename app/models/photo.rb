@@ -12,6 +12,6 @@ class Photo < ActiveRecord::Base
   validates_attachment_content_type :pic, :content_type => /\Aimage\/.*\Z/
 
   def s3_credentials
-    	{:bucket => "LifeKnockingTest", :access_key_id =>  ENV["ACCESS_KEY_ID"], :secret_access_key => ENV["SECRET_ACCESS_KEY"]}
+    	{:bucket => "LifeKnocking", :access_key_id =>  ENV["ACCESS_KEY_ID"], :secret_access_key => ENV["SECRET_ACCESS_KEY"]}
   end
 end
