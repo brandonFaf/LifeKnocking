@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root 'pages#home'
   
   resources :photos, only: [:new, :create, :index, :destroy, :show]
-  resources :podcasts, only: [:new, :create, :index, :destroy, :show]
-  resources :posts, only: [:new, :create, :index, :destroy, :show]
+  resources :podcasts
+  resources :posts
   
   match '/contact', to: 'pages#contact', via: 'get'
   match '/about', to: 'pages#about', via: 'get'

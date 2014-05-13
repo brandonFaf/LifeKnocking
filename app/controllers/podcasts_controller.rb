@@ -17,6 +17,22 @@ class PodcastsController < ApplicationController
 		end
 	end
 
+	def edit
+		@pod = Podcast.find(params[:id])
+	end
+
+	def update
+		respond_to do |format|
+      if @pod.update(pod_params)
+        format.html { redirect_to @pod, notice: 'pod was successfully updated.' }
+        format.json { render :show, status: :ok, location: @pod }
+      else
+        format.html { render :edit }
+        format.json { render json: @pod.errors, status: :unprocessable_entity }
+      end
+    end
+	end
+
 	def destroy
 		pod = Podcast.find(params[:id])
 		pod.destroy

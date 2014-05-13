@@ -13,6 +13,9 @@
    <%= link_to(pod) do %>
     <div class="list-group-item">
       <span class="list-group-item-heading"> <%= pod.title%> </span>
+      <audio controls>
+        <source src="<%=pod.audio.url%>" type="audio/mpeg">
+      </audio>
       <p class="list-group-item-text"><%=pod.description%></p>
     </div>
     <%end%>

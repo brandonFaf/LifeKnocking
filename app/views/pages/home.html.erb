@@ -11,7 +11,7 @@
 				<p class="list-group-item-text"><%=post.description%></p>
 			<% elsif post.class == Photo%>
 				<p class="list-group-item-text"><%=post.caption%></p>
-				<%= image_tag post.pic.url(:square), :class => 'text-center' %>
+				<%= image_tag post.pic.url(:square), :class => 'center-block' %>
 			<% end %>
 			<div class="list-group-item-text"><%= post.created_at %></div>
 		</div>
