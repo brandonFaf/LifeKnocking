@@ -1,6 +1,6 @@
 class PodcastsController < ApplicationController
 	def index
-		@pod = Podcast.all
+		@pods = Podcast.all
 	end
 
 	def new
@@ -17,6 +17,15 @@ class PodcastsController < ApplicationController
 		end
 	end
 
+	def destroy
+		pod = Podcast.find(params[:id])
+		pod.destroy
+		redirect_to action: 'index', notice: 'deleted'
+	end
+
+	def show
+		@pod = Podcast.find(params[:id])
+	end
 
 
 	def pod_params

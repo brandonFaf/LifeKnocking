@@ -1,0 +1,19 @@
+<h1 class='text-center'>What's New?</h1>
+<div class="list-group">
+	<%for post in @posts %>
+		<div class="list-group-item">
+			<%= link_to(post) do %>
+				<span class="list-group-item-heading"> <%= post.title%> </span>
+			<%end%>
+			<%if post.class == Post %>
+				<p class="list-group-item-text"><%=post.content%></p>
+			<% elsif post.class == Podcast%>
+				<p class="list-group-item-text"><%=post.description%></p>
+			<% elsif post.class == Photo%>
+				<p class="list-group-item-text"><%=post.caption%></p>
+				<%= image_tag post.pic.url(:square), :class => 'text-center' %>
+			<% end %>
+			<div class="list-group-item-text"><%= post.created_at %></div>
+		</div>
+	<%end%>
+</div>

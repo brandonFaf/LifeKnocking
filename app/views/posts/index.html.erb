@@ -1,0 +1,14 @@
+<% provide(:title, 'Home') %>
+<button class="btn btn-primary">
+	<%= link_to 'New Post', new_post_path %>
+</button>
+<div class="list-group">
+<%for post in @posts %>
+  <div class="list-group-item">
+    <%= link_to(post) do %>
+      <span class="list-group-item-heading"> <%= post.title%> </span>
+    <%end%>
+    <p><%=post.content%></p>
+  </div>
+<%end%>
+</div>

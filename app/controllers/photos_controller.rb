@@ -23,6 +23,11 @@ class PhotosController < ApplicationController
 		redirect_to action: 'index', notice: 'deleted'
 	end
 
+	def show
+		@photo = Photo.find(params[:id])
+		
+	end
+
 	def photo_params
 		params.require(:photo).permit(:title, :caption, :pic)
 	end

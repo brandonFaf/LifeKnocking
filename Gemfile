@@ -7,7 +7,7 @@ gem 'rails', '4.1.0'
 gem 'pg'
 gem 'paperclip'
 gem 'aws-sdk'
-
+gem 'listable'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets

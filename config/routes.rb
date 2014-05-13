@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
-  root 'photos#index'
-
-  resources :photos, only: [:new, :create, :index, :destroy]
-  resources :podcasts, only: [:new, :create, :index]
-
+  root 'pages#home'
+  
+  resources :photos, only: [:new, :create, :index, :destroy, :show]
+  resources :podcasts, only: [:new, :create, :index, :destroy, :show]
+  resources :posts, only: [:new, :create, :index, :destroy, :show]
+  
   match '/contact', to: 'pages#contact', via: 'get'
   match '/about', to: 'pages#about', via: 'get'
 

@@ -1,51 +1,56 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
   <title>LifeKnocking</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-  <header class="navbar navbar-bright navbar-fixed-top" role="banner">
- 	  <div class="container">
-      <div class="navbar-header">
-        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        </button>
+  </head>
+  <body>
+    <header class="navbar navbar-bright navbar-fixed-top" role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
           <%= link_to "Life Knocking", root_path, class: "navbar-brand" %>
+        </div>
+        <nav class="collapse navbar-collapse" role="navigation">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <%= link_to "Listen", podcasts_path %>
+            </li>
+            <li>
+              <%= link_to "Photo Galery", photos_path %>
+            </li>
+            <li>
+              <%= link_to "About Us", about_path %>
+            </li>
+            <li>
+              <%= link_to "Contact", contact_url %>
+            </li>
+          </ul>
+        </nav>
       </div>
- 	    <nav class="collapse navbar-collapse" role="navigation">
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <%= link_to "Listen", podcasts_path %>
-        </li>
-        <li>
-          <%= link_to "Photo Galery", photos_path %>
-        </li>
-        <li>
-          <%= link_to "About Us", about_path %>
-        </li>
-        <li>
-          <%= link_to "Contact", contact_path %>
-        </li>
-      </ul>
-      </nav>
+    </header>
+    <div class="jumbotron">
+      <h1>Life Knocking</h1>
+      <p>Welcome to our podcast. Life Knocking is a weekly podcast brought to you by three friends: Kris, Travis, and Brandon (KTB). What will you do when life comes knocking at your door!?</p>
     </div>
-  </header>
-
-     <%= yield %>
-      
-      <div class = "col-md-4 col-md-offset-8">
-        <a class="twitter-timeline" href="https://twitter.com/LifeKnocking" data-widget-id="460249800701534210">Tweets by @LifeKnocking</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <%= yield %>
+        </div>
+        <div class = "col-md-4">
+          <a class="twitter-timeline" href="https://twitter.com/LifeKnocking" data-widget-id="460249800701534210" data-chrome = "nofooter" data-list-owner-screen-name="lifeknocking" data-list-slug="members">Tweets by @LifeKnocking</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
         </div>
       </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>

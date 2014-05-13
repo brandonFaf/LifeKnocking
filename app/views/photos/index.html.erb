@@ -1,10 +1,6 @@
 <% provide(:title, 'Photos') %>
-<div class="jumbotron">
-  <h1>Life Knocking</h1>
-  <p>Welcome to our podcast this is where we would put a short description of our site and what we do.</p>
-</div>
-<div class="row">
-  <div class="col-md-8 col-md-offset-1">
+
+
 <table class="table table-striped table-hover">
   <thead>
     <tr>
@@ -17,14 +13,16 @@
   <tbody>
 	<% @photo.each do |photo| %>
       <tr>
-        <td><%= photo.title %></td>
+        <td><%= link_to photo.title, photo %></td>
 		<!-- display the avatar in both the original size and the thumbnail size -->
-	<td><%= image_tag photo.pic.url %></td>
+        <td><%= image_tag photo.pic.url(:thumb) %></td>
 		
 		
 		<!-- show the filename for the resume -->
         <td><%= photo.caption %></td>
-        <td><%= link_to 'Delete', photo, method: :delete  %></td>
+        <% if Rails.env.development? %>
+         <td> <%= link_to 'Delete', photo , method: :delete %> </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -33,9 +31,8 @@
 
 <br>
 <br>
-<%=  %>
+<% if Rails.env.development?  %>
 <br>
 
 <%= link_to 'New Photo', new_photo_path %>
-</div>
-</div>
+<% end %>
