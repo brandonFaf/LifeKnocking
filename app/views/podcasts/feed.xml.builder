@@ -23,7 +23,7 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd", :version
     xml.itunes :summary, description
     xml.itunes :image, href: image
     xml.itunes :explicit, "no"
-    xml.itunes :category, text: 'Kids &amp; Family'
+    xml.itunes :category, text: "Kids &amp; Family"
     xml.itunes :category, text: 'Comedy'
      xml.itunes :owner do
       xml.itunes :email, "LifeKnocking@aol.com"
