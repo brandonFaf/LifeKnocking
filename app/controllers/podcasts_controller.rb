@@ -1,6 +1,15 @@
 class PodcastsController < ApplicationController
 	def index
+	    @pods = Podcast.all
+
+	end
+
+	def feed
 		@pods = Podcast.all
+		respond_to do |format|
+   			format.xml { render :layout => false }
+   			format.atom
+		end
 	end
 
 	def new
@@ -49,4 +58,5 @@ class PodcastsController < ApplicationController
 rescue_from CanCan::AccessDenied do |exception|
     redirect_to podcasts_path, :alert => 'You do not have permission to do access that action'
   end
+
 end

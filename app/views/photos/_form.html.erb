@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, size: "50" %>
   </div>
   <!-- Upload your attachments via a simple file_fields in the form -->
  <div class="field">
@@ -22,7 +22,7 @@
   </div>
   <div class="field">
     <%= f.label :caption %><br>
-    <%= f.text_field :caption %>
+    <%= f.text_field :caption, size: "90x10" %>
   </div>
   <div class="actions">
     <%= f.submit %>
