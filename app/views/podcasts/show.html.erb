@@ -1,3 +1,9 @@
+<% if can? :edit, current_user %>
+	<div>
+		<%= link_to 'Edit', edit_podcast_path(@pod) %>
+	</div>
+<% end %>
+
 <h2><%=@pod.title%></h2>
 <div>
 	<audio controls>
@@ -7,7 +13,4 @@
 </div>
 <div>
 	<%=@pod.description%>
-</div>
-<div>
-	<%= link_to 'Edit', edit_podcast_path(@pod) %>
 </div>

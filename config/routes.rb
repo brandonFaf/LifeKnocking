@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   root 'pages#home'
   
-  resources :photos, only: [:new, :create, :index, :destroy, :show]
+  resources :photos
   resources :podcasts
   resources :posts
   

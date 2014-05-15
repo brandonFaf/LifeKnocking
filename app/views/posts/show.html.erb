@@ -2,7 +2,8 @@
 <div>
 	<%=@post.content%>
 </div>
-
-<div>
-	<%= link_to 'Edit', edit_post_path(@post) %>
-</div>
+<% if can? :edit, current_user %>
+	<div>
+		<%= link_to 'Edit', edit_post_path(@post) %>
+	</div>
+<% end %>

@@ -20,7 +20,7 @@
 		
 		<!-- show the filename for the resume -->
         <td><%= photo.caption %></td>
-        <% if Rails.env.development? %>
+        <% if can? :destroy, current_user %>
          <td> <%= link_to 'Delete', photo , method: :delete %> </td>
         <% end %>
       </tr>
@@ -31,7 +31,7 @@
 
 <br>
 <br>
-<% if Rails.env.development?  %>
+<% if can? :create, current_user  %>
 <br>
 
 <%= link_to 'New Photo', new_photo_path %>

@@ -3,7 +3,7 @@
 	<%for post in @posts %>
 		<div class="list-group-item">
 			<%= link_to(post) do %>
-				<span class="list-group-item-heading"> <%= post.title%> </span>
+				<h2 class="list-group-item-heading"> <%= post.title%> </h2>
 			<%end%>
 			<%if post.class == Post %>
 				<p class="list-group-item-text"><%=post.content%></p>
@@ -13,7 +13,7 @@
 				<p class="list-group-item-text"><%=post.caption%></p>
 				<%= image_tag post.pic.url(:square), :class => 'center-block' %>
 			<% end %>
-			<div class="list-group-item-text"><%= post.created_at %></div>
+			<div class="list-group-item-text"><strong><%= post.created_at.strftime("%m/%d/%Y") %></strong></div>
 		</div>
 	<%end%>
 </div>

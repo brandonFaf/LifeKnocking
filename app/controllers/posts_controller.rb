@@ -5,6 +5,8 @@ class PostsController < ApplicationController
 
 	def new 
 		@post = Post.new
+
+		authorize! :manage, current_user
 	end
 
 	def create
@@ -26,19 +28,15 @@ class PostsController < ApplicationController
 	end
 
 	def update
-		respond_to do |format|
-	      if @post.update(post_params)
-	        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-	        format.json { render :show, status: :ok, location: @post }
-	      else
-	        format.html { render :edit }
-	        format.json { render json: @post.errors, status: :unprocessable_entity }
-	      end
-	    end
+		post = Post.find(params[:id])
+		post.update!(post_params)
+		redirect_to post
 	end
 
 	def edit
 		@post = Post.find(params[:id])
+
+		authorize! :manage, current_user
 	end
 
 	def show
@@ -48,4 +46,9 @@ class PostsController < ApplicationController
 	def post_params
 		params.require(:post).permit(:title, :content)
 	end
+
+rescue_from CanCan::AccessDenied do |exception|
+    redirect_to posts_path, :alert => 'You do not have permission to do access that action'
+  end
+
 end

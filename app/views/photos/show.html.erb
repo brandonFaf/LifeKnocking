@@ -3,3 +3,9 @@
 	<p><%=@photo.caption%></p>
 	<%= image_tag @photo.pic.url %>
 </div>
+
+<% if can? :edit, current_user %>
+	<div>
+		<%= link_to 'Edit', edit_photo_path(@photo) %>
+	</div>
+<% end %>

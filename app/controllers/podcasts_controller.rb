@@ -5,6 +5,8 @@ class PodcastsController < ApplicationController
 
 	def new
 		@pod = Podcast.new
+				authorize! :manage, current_user
+
 	end
 
 	def create 
@@ -19,18 +21,14 @@ class PodcastsController < ApplicationController
 
 	def edit
 		@pod = Podcast.find(params[:id])
+				authorize! :manage, current_user
+
 	end
 
 	def update
-		respond_to do |format|
-      if @pod.update(pod_params)
-        format.html { redirect_to @pod, notice: 'pod was successfully updated.' }
-        format.json { render :show, status: :ok, location: @pod }
-      else
-        format.html { render :edit }
-        format.json { render json: @pod.errors, status: :unprocessable_entity }
-      end
-    end
+		pod = Podcast.find(params[:id])
+		pod.update!(pod_params)
+		redirect_to pod
 	end
 
 	def destroy
@@ -48,4 +46,7 @@ class PodcastsController < ApplicationController
 		params.require(:podcast).permit(:title, :description, :audio, :notes)
 	end
 
+rescue_from CanCan::AccessDenied do |exception|
+    redirect_to podcasts_path, :alert => 'You do not have permission to do access that action'
+  end
 end

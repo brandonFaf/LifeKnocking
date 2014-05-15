@@ -1,7 +1,9 @@
 <% provide(:title, 'Home') %>
-<button class="btn btn-primary">
-	<%= link_to 'New Post', new_post_path %>
-</button>
+<% if can? :create, current_user  %>
+	<button class="btn btn-primary">
+		<%= link_to 'New Post', new_post_path %>
+	</button>
+<%end%>
 <div class="list-group">
 <%for post in @posts %>
   <div class="list-group-item">

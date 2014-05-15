@@ -5,6 +5,8 @@ class PhotosController < ApplicationController
 
 	def new
 		@photo = Photo.new
+				authorize! :manage, current_user
+
 	end
 
 	def create
@@ -28,8 +30,31 @@ class PhotosController < ApplicationController
 		
 	end
 
+	def edit
+		@photo = Photo.find(params[:id])
+				authorize! :manage, current_user
+
+	end
+
+	def update
+		respond_to do |format|
+      if @photo.update(photo_params)
+        format.html { redirect_to @photo, notice: 'photo was successfully updated.' }
+        format.json { render :show, status: :ok, location: @photo }
+      else
+        format.html { render :edit }
+        format.json { render json: @photo.errors, status: :unprocessable_entity }
+      end
+    end
+	end
+
+
 	def photo_params
 		params.require(:photo).permit(:title, :caption, :pic)
 	end
+
+	rescue_from CanCan::AccessDenied do |exception|
+    redirect_to photos_path, :alert => 'You do not have permission to do access that action'
+  end
 
 end

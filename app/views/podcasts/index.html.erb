@@ -3,7 +3,7 @@
 <h1 class='text-center'>Podcasts</h1>
 
 
-<% if Rails.env.development?  %>
+<% if can? :create, current_user  %>
 <%= link_to "Add new Podcast", new_podcast_path %>
 <br>
 <% end %>
@@ -12,10 +12,17 @@
   <%for pod in @pods %>
    <%= link_to(pod) do %>
     <div class="list-group-item">
-      <span class="list-group-item-heading"> <%= pod.title%> </span>
+      <h2 class="list-group-item-heading"> <%= pod.title%> </h2>
+      <% if can? :destroy, current_user  %>
+        <%= link_to "DELETE", pod, method: :delete%>
+        <br>
+      <% end %>
+      <br>
       <audio controls>
         <source src="<%=pod.audio.url%>" type="audio/mpeg">
       </audio>
+      <br>
+      <br>
       <p class="list-group-item-text"><%=pod.description%></p>
     </div>
     <%end%>
