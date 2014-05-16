@@ -36,6 +36,7 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd", :version
         xml.description pod.description
         xml.link pod.audio.url
         xml.pubDate pod.created_at.to_s(:rfc822)
+        xml.itunes :image, href: image
         xml.itunes :summary, pod.description
         xml.itunes :author, author
         xml.itunes :explicit, "no"
