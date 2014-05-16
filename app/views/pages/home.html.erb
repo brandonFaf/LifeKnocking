@@ -6,11 +6,12 @@
 				<h2 class="list-group-item-heading"> <%= post.title%> </h2>
 			<%end%>
 			<%if post.class == Post %>
-				<p class="list-group-item-text"><%=post.content%></p>
+				<p class="list-group-item-text"><%=post.content[0..110]%>... <%= link_to "[See More]", post_path(post)%></p>
 			<% elsif post.class == Podcast%>
-				<p class="list-group-item-text"><%=post.description%></p>
+				<p class="list-group-item-text"><%=post.description[0..100]%>...<%= link_to "[See More]", podcast_path(post)%></p>
 			<% elsif post.class == Photo%>
-				<p class="list-group-item-text"><%=post.caption%></p>
+				<p class="list-group-item-text"><%=post.caption[0..100]%>...<%= link_to "[See More]", photo_path(post)%></p>
+				<br>
 				<%= image_tag post.pic.url(:square), :class => 'center-block' %>
 			<% end %>
 			<div class="list-group-item-text"><strong><%= post.created_at.strftime("%m/%d/%Y") %></strong></div>
