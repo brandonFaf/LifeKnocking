@@ -2,7 +2,7 @@ class Photo < ActiveRecord::Base
   has_attached_file :pic, styles: {
     thumb: '100x100>',
     square: '200x200#',
-    medium: '300x300>'
+    medium: '500x500>'
   },
   bucket: 'LifeKnocking',
   :s3_credentials => Proc.new{|a| a.instance.s3_credentials },

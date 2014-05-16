@@ -1,7 +1,7 @@
 <h2><%=@photo.title%></h2>
 <div>
 	<p><%=@photo.caption%></p>
-	<%= image_tag @photo.pic.url %>
+	<%= image_tag @photo.pic.url(:medium) %>
 </div>
 
 <% if can? :edit, current_user %>
