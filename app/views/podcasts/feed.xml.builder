@@ -2,7 +2,7 @@ title = "Life Knocking"
 description = "This is a podcast where three friends come together and talk about things, and stuff"
 author = "Life Knocking"
 keywords = "life, knocking, friends, fun, stories, sushi, skydiving"
-image = "http://s3.amazonaws.com/LifeKnocking/pics/KTBPresents.png"
+image = "http://s3.amazonaws.com/LifeKnocking/pics/KTBPresentsSquare.png"
 
 
 xml.instruct! :xml, :version => "1.0" 
@@ -23,9 +23,12 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd", :version
     xml.itunes :summary, description
     xml.itunes :image, href: image
     xml.itunes :explicit, "no"
-    xml.itunes :category, text: "Kids & Family"
     xml.itunes :category, text: 'Comedy'
-     xml.itunes :owner do
+    xml.itunes :category, text: "Society & Culture" do
+      xml.itunes :category, text: "History"
+    end
+    xml.itunes :category, text: "Kids & Family"
+    xml.itunes :owner do
       xml.itunes :email, "LifeKnocking@aol.com"
       xml.itunes :name, "Brandon Myers"
     end 
