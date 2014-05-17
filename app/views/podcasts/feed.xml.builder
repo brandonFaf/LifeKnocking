@@ -25,7 +25,7 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd", :version
     xml.itunes :explicit, "no"
     xml.itunes :category, text: 'Comedy'
     xml.itunes :category, text: "Society & Culture" do
-      xml.itunes :category, text: "History"
+      xml.itunes :category, text: "Personal Journals"
     end
     xml.itunes :category, text: "Kids & Family"
     xml.itunes :owner do
