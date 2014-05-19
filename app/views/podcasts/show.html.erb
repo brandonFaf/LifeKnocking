@@ -1,8 +1,3 @@
-<% if can? :edit, current_user %>
-	<div>
-		<%= link_to 'Edit', edit_podcast_path(@pod) %>
-	</div>
-<% end %>
 
 <h2><%=@pod.title%></h2>
 <div>
@@ -12,5 +7,13 @@
  	
 </div>
 <div>
-	<%=@pod.description%>
+	<%=simple_format@pod.description%>
+</div>
+<div>
+<% if can? :edit, current_user %>
+	
+		<%= link_to 'Edit | ', edit_podcast_path(@pod) %>
+	
+<% end %>
+<%= link_to 'Back', podcasts_path %>
 </div>

@@ -1,8 +1,8 @@
 title = "Life Knocking"
-description = "This is a podcast where three friends come together and talk about things, and stuff"
+description = "Three friends and a microphone. What more could you ask for? Who knows will the conversation will go, but one thing's for sure, you're in store for quite a show! How will you answer the door!?"
 author = "Life Knocking"
 keywords = "life, knocking, friends, fun, stories, sushi, skydiving"
-image = "http://s3.amazonaws.com/LifeKnocking/pics/KTBPresentsSquare.png"
+image = "http://s3.amazonaws.com/LifeKnocking/pics/PodcastImage.jpeg"
 
 
 xml.instruct! :xml, :version => "1.0" 

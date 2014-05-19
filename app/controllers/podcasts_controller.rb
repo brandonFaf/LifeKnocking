@@ -1,6 +1,7 @@
 class PodcastsController < ApplicationController
 	def index
 	    @pods = Podcast.all
+	    @pods = @pods.sort do |a, b| b.created_at <=> a.created_at end
 
 	end
 
