@@ -1,38 +1,23 @@
 <% provide(:title, 'Photos') %>
+<h1 class="text-center">Photo Gallery</h1>
+<% @episodes.each do |ep| %>
+  <div class="page-header"><h2 class="text-center">Episode <%= ep.id %></h2></div>
 
-
-<table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Pic</th>
-      <th>Caption</th>
-    </tr>
-  </thead>
-
-  <tbody>
-	<% @photo.each do |photo| %>
-      <tr>
-        <td><%= link_to photo.title, photo %></td>
-		<!-- display the avatar in both the original size and the thumbnail size -->
-        <td><%= image_tag photo.pic.url(:thumb) %></td>
-		
-		
-		<!-- show the filename for the resume -->
-        <td><%= photo.caption %></td>
-        <% if can? :destroy, current_user %>
-         <td> <%= link_to 'Delete', photo , method: :delete %> </td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
-<br>
-<br>
-<% if can? :create, current_user  %>
-<br>
-
-<%= link_to 'New Photo', new_photo_path %>
+  <% ep.photos.each do |pic| %>
+    <div class="row">
+      <div class="col-md-6">
+        <%= link_to (image_tag pic.pic.url(:thumb)), photo_path(pic) %>
+      </div>
+      <div class="col-md-6"> 
+        <h4><%= pic.title %></h4>
+        <p><%=simple_format(pic.caption)%></p> 
+      </div>
+    </div>
+    <br>
+  <% end %>
 <% end %>
+ <% if can? :create, current_user  %>
+  <br>
+
+  <%= link_to 'New Photo', new_photo_path %>
+  <% end %>

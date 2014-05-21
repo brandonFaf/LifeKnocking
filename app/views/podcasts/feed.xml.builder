@@ -29,7 +29,7 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd", :version
     end
     xml.itunes :category, text: "Kids & Family"
     xml.itunes :owner do
-      xml.itunes :email, "LifeKnocking@aol.com"
+      xml.itunes :email, "LifeKnocking@gmail.com"
       xml.itunes :name, "Brandon Myers"
     end 
     xml.link podcasts_url
@@ -42,6 +42,8 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd", :version
         xml.itunes :image, href: image
         xml.itunes :summary, pod.description
         xml.itunes :author, author
+        xml.itunes :duration, pod.durration
+        xml.itunes :order, pod.episode.id
         xml.itunes :explicit, "no"
         xml.itunes :subtitle, pod.description[0..254] 
         xml.enclosure :url => pod.audio.url, :length => pod.audio_file_size, :type => 'audio/mpeg'

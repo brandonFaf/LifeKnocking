@@ -1,4 +1,7 @@
 class Photo < ActiveRecord::Base
+  belongs_to :episode
+  has_one :podcast, through: :episode
+
   has_attached_file :pic, styles: {
     thumb: '100x100>',
     square: '200x200#',

@@ -1,6 +1,6 @@
 <h2><%=@photo.title%></h2>
 <div>
-	<p><%=@photo.caption%></p>
+	<p><%=simple_format(@photo.caption)%></p>
 	<%= image_tag @photo.pic.url(:medium) %>
 </div>
 	<div>

@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   devise_for :users
   root 'pages#home'
-  
+  match '/photos', to: 'photos#tabs', via: 'get', as: :photos_tabs
+  match '/photos/all', to: 'photos#index', via: 'get'
   resources :photos
   resources :podcasts
   resources :posts
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
   match '/contact', to: 'pages#contact', via: 'get'
   match '/about', to: 'pages#about', via: 'get'
   match '/rss', to: 'podcasts#feed', via: 'get', format: 'xml'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

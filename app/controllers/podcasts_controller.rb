@@ -53,7 +53,7 @@ class PodcastsController < ApplicationController
 
 
 	def pod_params
-		params.require(:podcast).permit(:title, :description, :audio, :notes)
+		params.require(:podcast).permit(:title, :description, :audio, :notes, :durration)
 	end
 
 rescue_from CanCan::AccessDenied do |exception|

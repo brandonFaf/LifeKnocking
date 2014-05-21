@@ -1,6 +1,12 @@
 class PhotosController < ApplicationController
 	def index
-		@photo = Photo.all
+		@episodes = Episode.all
+		@photos = Photo.all
+	end
+
+	def tabs
+		@episodes = Episode.all
+		@photos = Photo.all
 	end
 
 	def new
@@ -44,7 +50,7 @@ class PhotosController < ApplicationController
 
 
 	def photo_params
-		params.require(:photo).permit(:title, :caption, :pic)
+		params.require(:photo).permit(:title, :caption, :pic, :episode_id)
 	end
 
 	rescue_from CanCan::AccessDenied do |exception|

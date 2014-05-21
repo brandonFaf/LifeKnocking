@@ -7,7 +7,7 @@
  	
 </div>
 <div>
-	<%=simple_format@pod.description%>
+	<%=simple_format(@pod.description)%>
 </div>
 <div>
 <% if can? :edit, current_user %>

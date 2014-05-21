@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140515013743) do
+ActiveRecord::Schema.define(version: 20140521173615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "episodes", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "podcast_id"
+  end
 
   create_table "photos", force: true do |t|
     t.string   "title"
@@ -25,6 +31,7 @@ ActiveRecord::Schema.define(version: 20140515013743) do
     t.string   "pic_content_type"
     t.integer  "pic_file_size"
     t.datetime "pic_updated_at"
+    t.integer  "episode_id"
   end
 
   create_table "podcasts", force: true do |t|
@@ -37,6 +44,7 @@ ActiveRecord::Schema.define(version: 20140515013743) do
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "durration"
   end
 
   create_table "posts", force: true do |t|

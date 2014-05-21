@@ -22,8 +22,13 @@
   </div>
   <div class="field">
     <%= f.label :caption %><br>
-    <%= f.text_field :caption, size: "90x10" %>
+    <%= f.text_area :caption, size: "90x10" %>
   </div>
+  <div class="field">
+    <%= f.label :episode_id %><br>
+    <%= f.text_field :episode_id %>
+  </div>
+  <br>
   <div class="actions">
     <%= f.submit %>
   </div>
