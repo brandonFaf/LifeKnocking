@@ -13,6 +13,8 @@
    <%= link_to(pod) do %>
     <div class="list-group-item">
       <h2 class="list-group-item-heading"> <%= pod.title%> </h2>
+   <%end%>
+
       <% if can? :destroy, current_user  %>
         <%= link_to "DELETE", pod, method: :delete%>
         <br>
@@ -25,6 +27,5 @@
       <br>
       <p class="list-group-item-text"><%=simple_format(pod.description)%></p>
     </div>
-    <%end%>
   <%end%>
 </div>

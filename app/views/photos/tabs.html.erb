@@ -1,7 +1,7 @@
 <% provide(:title, 'Photos') %>
 <h1 class="text-center">Photo Gallery</h1>
 <!-- Make Tab Bar -->
-<ul class = "nav nav-tabs">
+<ul class = "nav nav-tabs " style="margin-bottom: 15px;">
 <% @episodes.each do |ep| %>
   <%if ep.id == 1%>
   <li class ="active"><a href="#<%= ep.id %>" data-toggle="tab">Episode <%= ep.id %></a></li>
@@ -23,11 +23,11 @@
           <%= link_to (image_tag pic.pic.url(:thumb)), photo_path(pic) %>
         </div>
         <div class="col-md-6"> 
-          <h4><%= pic.title %></h4>
+          <h4><%= link_to pic.title, photo_path(pic) %></h4>
           <p><%=pic.caption%></p> 
         </div>
       </div>
-      <br>
+        <hr>
     <% end %>
   </div>
 <% end %>
