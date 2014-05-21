@@ -29,7 +29,7 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd", :version
     end
     xml.itunes :category, text: "Kids & Family"
     xml.itunes :owner do
-      xml.itunes :email, "LifeKnocking@gmail.com"
+      xml.itunes :email, "LifeKnockingpodcast@gmail.com"
       xml.itunes :name, "Brandon Myers"
     end 
     xml.link podcasts_url
