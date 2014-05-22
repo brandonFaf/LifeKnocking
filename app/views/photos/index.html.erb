@@ -2,7 +2,9 @@
 <h1 class="text-center">Photo Gallery</h1>
 <% @episodes.each do |ep| %>
   <div class="page-header"><h2 class="text-center">Episode <%= ep.id %></h2></div>
-
+<%if ep.photos.count == 0 %>
+      <div>No Photos............YET!</div>
+    <% else %>
   <% ep.photos.each do |pic| %>
     <div class="row">
       <div class="col-md-6">
@@ -16,6 +18,8 @@
     <br>
   <% end %>
 <% end %>
+    <% end %>
+
  <% if can? :create, current_user  %>
   <br>
 

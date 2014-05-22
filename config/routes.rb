@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   devise_for :users
   root 'pages#home'
-  match '/photos', to: 'photos#tabs', via: 'get', as: :photos_tabs
-  match '/photos/all', to: 'photos#index', via: 'get'
+  match '/photos/tab', to: 'photos#tabs', via: 'get', as: :photos_tabs
+  #match '/photos/all', to: 'photos#index', via: 'get'
   resources :photos
   resources :podcasts
   resources :posts
