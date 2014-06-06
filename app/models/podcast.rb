@@ -1,6 +1,7 @@
 class Podcast < ActiveRecord::Base
 	has_one :episode
 	has_many :photos, through: :episode 
+	has_many :extras, through: :episode
 
 	has_attached_file 	:audio,
 						:storage => :s3,
