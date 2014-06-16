@@ -47,7 +47,7 @@
 				<% @pod.extras.each do |extra| %>
 	        		<div class="list-group-item">
 						<h2 class="list-group-item-heading"><%=extra.title%></h2>						
-				        <p class="list-group-item-text"><%=extra.body%></p> 
+				        <p class="list-group-item-text"><%=link_to extra.body, extra.body%></p> 
 				    </div>
 
 			    <% end %>
