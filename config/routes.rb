@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :photos
   resources :podcasts
   resources :posts
+  resources :extra
   
   match '/contact', to: 'pages#contact', via: 'get'
   match '/about', to: 'pages#about', via: 'get'

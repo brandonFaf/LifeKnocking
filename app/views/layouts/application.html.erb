@@ -33,7 +33,6 @@
         <div class="collapse navbar-collapse navbar-responsive-collapse" role="navigation">
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Listen", podcasts_path, class: "navbar-btn" %></li>
-            <li><%= link_to "Photo Gallery", photos_path, class: "navbar-btn" %></li>
             <li><%= link_to "News", posts_url, class: "navbar-btn" %></li>
             <li><%= link_to "About Us", about_path, class: "navbar-btn" %></li>
             <li><%= link_to "Contact", contact_url, class: "navbar-btn" %></li>
@@ -58,7 +57,7 @@
             <div class="fb-like text-right" data-href="https://www.facebook.com/lkpod" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
           </div>
         </div>
-        <div class="row">
+        <div class="row hidden-xs">
           <div class="col-md-4">
             <br>
               <div><%= link_to (image_tag 'facebook-icon.png')+' Facebook', "https://www.facebook.com/lkpod"%></div>

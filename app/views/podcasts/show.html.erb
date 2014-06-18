@@ -20,6 +20,12 @@
 		<div>
 			<%=simple_format(@pod.description)%>
 		</div>
+		<br>
+		<% if can? :edit, current_user %>
+	
+			<%= link_to 'Edit This Podcast', edit_podcast_path(@pod) %>
+	
+		<% end %>
 	</div>
 	<div class="tab-pane fade" id="photos">
 		<%if @pod.photos.count == 0 %>
@@ -35,9 +41,19 @@
           <p><%=pic.caption%></p> 
         </div>
       </div>
+      <% if can? :edit, current_user %>
+	
+			<%= link_to 'Edit', edit_photo_path(pic) %>
+	
+		<% end %>
         <hr>
     <% end %>
     <% end %>
+    <% if can? :create, current_user  %>
+		<%= link_to "Add new Photos", new_photo_path(episode_id: @pod.episode.id) %>
+		<br>
+	<% end %>
+
 	</div>
 	<div class="tab-pane fade" id="notes">
 		<%if @pod.extras.count == 0 %>
@@ -48,20 +64,25 @@
 	        		<div class="list-group-item">
 						<h2 class="list-group-item-heading"><%=extra.title%></h2>						
 				        <p class="list-group-item-text"><%=link_to extra.body, extra.body%></p> 
+				        
+						<% if can? :destroy, current_user  %>
+       						 <%= link_to "DELETE", extra, method: :delete%>
+       						 <br>
+     						 <% end %>
 				    </div>
 
 			    <% end %>
       		</div>
     	<% end %>
+    	<% if can? :create, current_user  %>
+		<%= link_to "Add new Extra", new_extra_path(episode_id: @pod.episode.id) %>
+		<br>
+	<% end %>
 	</div>
 
 </div>
 <br><br><br>
 <div>
-<% if can? :edit, current_user %>
-	
-		<%= link_to 'Edit | ', edit_podcast_path(@pod) %>
-	
-<% end %>
+
 <%= link_to 'Back', podcasts_path %>
 </div>

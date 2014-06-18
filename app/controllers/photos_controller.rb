@@ -11,6 +11,8 @@ class PhotosController < ApplicationController
 
 	def new
 		@photo = Photo.new
+		  	@photo.episode_id = params[:episode_id]
+
 				authorize! :manage, current_user
 
 	end
@@ -19,7 +21,9 @@ class PhotosController < ApplicationController
 		@photo = Photo.new(photo_params)
 
 		if @photo.save
-			redirect_to action: 'index', notice: 'photo saved'
+			episode = Episode.find(@photo.episode_id)
+  	pod = episode.podcast
+			redirect_to pod, notice: 'photo saved'
 		else
 			render action: 'new', alert: 'something went wrong'
 		end
@@ -45,7 +49,9 @@ class PhotosController < ApplicationController
 	def update
 		@photo = Photo.find(params[:id])
 		@photo.update!(photo_params)
-		redirect_to @photo
+		episode = Episode.find(@photo.episode_id)
+  	pod = episode.podcast
+		redirect_to pod
 	end
 
 
