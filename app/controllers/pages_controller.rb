@@ -11,6 +11,10 @@ class PagesController < ApplicationController
 		_posts += Podcast.all
 		@posts = _posts.sort do |a, b| b.created_at <=> a.created_at end
 	end
+
+	def game
+		render :layout => false
+	end
 	
 		
 end
