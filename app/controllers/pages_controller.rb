@@ -13,7 +13,7 @@ class PagesController < ApplicationController
 	end
 
 	def game
-		render :layout => false
+		# render :layout => false
 	end
 	
 		
