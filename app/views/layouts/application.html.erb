@@ -36,6 +36,7 @@
             <li><%= link_to "News", posts_url, class: "navbar-btn" %></li>
             <li><%= link_to "About Us", about_path, class: "navbar-btn" %></li>
             <li><%= link_to "Contact", contact_url, class: "navbar-btn" %></li>
+            <li><%= link_to "SubSink Game", subsink_url, class: "navbar-btn" %></li>
             <li>
             <% if user_signed_in? %>
               <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-btn'  %>
