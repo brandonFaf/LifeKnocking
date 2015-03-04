@@ -15,6 +15,9 @@ class PagesController < ApplicationController
 	def game
 		render :layout => false
 	end
+
+	def gameInfo
+	end
 	
 		
 end

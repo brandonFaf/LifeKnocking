@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   match '/about', to: 'pages#about', via: 'get'
   match '/rss', to: 'podcasts#feed', via: 'get', format: 'xml'
   match '/subsink', to: 'pages#game', via: 'get'
+  match '/subsinkinfo', to: 'pages#gameInfo', via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
