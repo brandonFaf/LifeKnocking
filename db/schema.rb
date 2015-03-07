@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140606153437) do
+ActiveRecord::Schema.define(version: 20150307230236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bugs", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "platform"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+  end
 
   create_table "episodes", force: true do |t|
     t.datetime "created_at"
@@ -59,6 +68,14 @@ ActiveRecord::Schema.define(version: 20140606153437) do
   create_table "posts", force: true do |t|
     t.string   "title"
     t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "suggestions", force: true do |t|
+    t.string   "title"
+    t.string   "name"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

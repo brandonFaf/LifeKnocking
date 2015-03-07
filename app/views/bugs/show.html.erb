@@ -1,0 +1,12 @@
+<h2><%=@bug.title%></h2>
+<div>
+	<%=simple_format(@bug.description)%>
+</div>
+<div>
+	<div>Submitted by <%=@bug.name%></div>
+	<div>Platform: <%=@bug.platform%></div>
+<% if can? :edit, current_user %>
+		<%= link_to 'Edit | ', edit_bug_path(@bug) %>	
+<% end %>
+<%= link_to 'Back', bugs_path %> 
+</div>

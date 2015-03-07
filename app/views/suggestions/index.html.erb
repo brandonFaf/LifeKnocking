@@ -1,0 +1,14 @@
+<% provide(:title, 'Home') %>
+
+	<%= link_to 'New Suggestion', new_suggestion_path, class: "btn btn-primary" %>
+<br>
+<div class="list-group">
+<%for suggestion in @suggestions %>
+  <div class="list-group-item">
+    <%= link_to(suggestion) do %>
+      <h2 class="list-group-item-heading"> <%= suggestion.title%> </h2>
+    <%end%>
+    <p><%=simple_format(suggestion.description)%></p>
+  </div>
+<%end%>
+</div>

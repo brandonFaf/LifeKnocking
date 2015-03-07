@@ -1,0 +1,11 @@
+<h2><%=@suggestion.title%></h2>
+<div>
+	<%=simple_format(@suggestion.description)%>
+</div>
+<div>
+	<div>Submitted by <%=@suggestion.name%></div>
+<% if can? :edit, current_user %>
+		<%= link_to 'Edit | ', edit_suggestion_path(@suggestion) %>	
+<% end %>
+<%= link_to 'Back', suggestions_path %> 
+</div>
